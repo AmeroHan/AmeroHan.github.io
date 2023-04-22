@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "zh-CN" }}">
+  {%- include new-head.html -%}
+
+  <body>
+		<div class="left-panel">
+			{%- include left-panel.html -%}
+		</div>
+
+		<div class="content">
+			{{- content -}}
+		</div>
+
+		<div class="right-panel">
+			{%- include right-panel.html -%}
+		</div>
+  </body>
+</html>

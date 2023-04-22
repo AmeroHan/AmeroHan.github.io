@@ -1,0 +1,29 @@
+
+
+// 着重号
+em {
+	font-style: normal;
+	-webkit-text-emphasis: dot;
+	        text-emphasis: dot;
+	-webkit-text-emphasis-position: under right;
+	        text-emphasis-position: under right;
+}
+
+// 黑幕
+.truth, .truth rt {
+	border-radius: .2rem;
+	box-decoration-break: clone;
+	background-color: black;
+	color: transparent;
+	transition: color .14s linear;
+	img {
+		opacity: 0;
+		transition: opacity .14s linear;
+	}
+	&:hover {
+		color: white;
+		img {
+			opacity: 1;
+		}
+	}
+}
