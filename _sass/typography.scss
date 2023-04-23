@@ -1,5 +1,3 @@
-
-
 // 着重号
 em {
 	font-style: normal;
@@ -10,16 +8,26 @@ em {
 }
 
 // 黑幕
-.truth, .truth rt {
-	border-radius: .2rem;
+.truth {
+	$bgcolor: black;
+	$radius: .2rem;
+
+	border-radius: $radius;
 	box-decoration-break: clone;
-	background-color: black;
+	background-color: $bgcolor;
 	color: transparent;
 	transition: color .14s linear;
+
+	rt {
+		background-color: $bgcolor;
+		border-radius: $radius $radius 0 0;
+	}
+
 	img {
 		opacity: 0;
 		transition: opacity .14s linear;
 	}
+
 	&:hover {
 		color: white;
 		img {

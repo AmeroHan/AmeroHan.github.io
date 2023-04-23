@@ -1,3 +1,5 @@
+@import "common.scss";
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -6,37 +8,45 @@
 :root {
 	background-color: #E8E7EB;
 	font-size: 16px;
+	line-height: 1;
 }
 
 body {
 	display: flex;
 	justify-content: center;
+	align-items: flex-start;
 	margin: 0;
 	width: 100%;
 	min-width: 90rem;
 	min-height: 100vh;
-	gap: 1rem
+	gap: 1rem;
+	padding: 4rem 1rem 2rem;
 }
 
-.left-panel, .right-panel, .content {
-	min-height: 10rem;
+.left-panel, .right-panel {
+	width: 16rem;
+	position: sticky;
+	top: 1rem;
 }
 
-$document-margin-top: 4rem;
 $layout-radius: .5rem;
 $layout-shadow: 0 1px 22px rgba(0, 0, 0, .1);
 
-.left-panel {
-	width: 16rem;
-	padding-top: $document-margin-top;
+@mixin card($radius: $layout-radius) {
+	border-radius: $radius;
+	box-shadow: $layout-shadow;
+	background-color: #FFF;
+	overflow: hidden;
 }
 
+
+// LEFT PANEL
+// ===================================
+
 .prev-post, .next-post {
+	@include card;
 	cursor: pointer;
-	border-radius: $layout-radius;
-	box-shadow: $layout-shadow;
 	overflow: hidden;
-	background-color: #FFF;
 	margin-bottom: 1rem;
 	display: flex;
 	flex-direction: column;
@@ -61,20 +71,30 @@ $layout-shadow: 0 1px 22px rgba(0, 0, 0, .1);
 			content: "查看";
 			position: absolute;
 			inset: 0;
-			display: flex;
-			align-items: center;
-			justify-content: center;
+			@extend .center;
 		}
 	}
 
 	.indicator {
+		height: 1rem;
 		font-size: .875rem;
-		transition: all .3s;
+		transition: transform .3s;
 	}
+
 	.title {
 		font-weight: 700;
-		line-height: 1.2;
-		transition: all .3s;
+		$lh: 1.25rem;
+		line-height: $lh;
+		max-height: $lh * 2;
+		transition: transform .3s;
+		overflow: hidden;
+		
+		// 超出的文字用省略号表示
+		// 兼容性稍差，考虑换用JS
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		text-overflow: ellipsis;
 	}
 
 	&:hover {
@@ -117,15 +137,92 @@ $layout-shadow: 0 1px 22px rgba(0, 0, 0, .1);
 	}
 }
 
-
-
-.content {	
-	width: 56rem;
-	background-color: #FFF;
-	border-radius: $layout-radius;
-	padding: 4rem 4rem 2rem;
-	margin-top: $document-margin-top;
+.divider {
+	margin: 2rem auto;
+	height: .25rem;
+	width: 5rem;
+	border-radius: .125rem;
+	background: #999;
 	box-shadow: $layout-shadow;
+}
+
+.my-info {
+	@include card;
+
+	$header-height: 9rem;
+	$avatar-width: 10rem;
+	$avatar-height: 9rem;
+	$avatar-circle-radius: 6.5rem;
+
+	.header {
+		display: block;
+		height: $header-height;
+		position: relative;
+		margin-bottom: 1rem;
+	}
+
+	.avatar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: $avatar-width;
+		height: $avatar-height;
+		clip-path: circle(
+			$avatar-circle-radius at
+			$avatar-width - $avatar-circle-radius
+			$avatar-height - $avatar-circle-radius
+		);
+
+		> img, > div {
+			display: block;
+			height: 100%;
+			width: 100%;
+			object-fit: cover;
+			position: absolute;
+			inset: 0;
+		}
+	}
+
+	.name {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		width: 8rem;
+		text-align: center;
+		font-weight: 700;
+	}
+
+	.name-main {
+		font-size: 1.75rem;
+	}
+
+	.nav ul {
+		display: grid;
+		padding: 0;
+		list-style: none;
+		grid-template-columns: 1fr 1fr;
+		font-size: .875rem;
+		> li {
+			> a {
+				display: block;
+				text-align: center;
+				padding: .75rem .25rem;
+			}
+			&:hover {
+				background-color: #0001
+			}
+		}
+	}
+}
+
+
+// MIDDLE PANEL
+// ===================================
+
+.content {
+	@include card;
+	width: 56rem;
+	padding: 4rem 4rem 2rem;
 
 	header {
 		margin-bottom: 1rem;
@@ -164,15 +261,65 @@ $layout-shadow: 0 1px 22px rgba(0, 0, 0, .1);
 
 }
 
+
+// RIGHT PANEL
+// ===================================
+
 .right-panel {
-	width: 16rem;
-	padding-top: $document-margin-top;
-	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin-top: 5rem;
 }
 
-.tools {
-	position: absolute;
-	left: 0;
-	right: 0;
+.toc {
+	margin-top: .5rem;
+
+	h2 {
+		padding-left: .5rem;
+		margin-bottom: 1rem;
+	}
+	ol {
+		padding: 0;
+		list-style: none;
+		line-height: 1.25;
+		font-size: .875rem;
+	}
+	li {		
+		
+		&:hover {
+			background-color: #FFFA;
+		}
+
+		&.current {
+			background-color: #FFF;
+		}
+
+		a {
+			display: block;
+			padding: .5rem;
+			
+		}
+	}
+}
+
+.site-tools {
 	bottom: 2rem;
+	padding: 0;
+	list-style: none;
+
+	> li {
+		@include card(50%);
+		width: 2.5rem;
+		height: 2.5rem;
+		border-radius: 50%;
+		font-size: .75rem;
+		overflow: hidden;
+		margin-top: 1rem;
+		position: relative;
+		> a {
+			@extend .center;
+			position: absolute;
+			inset: 0;
+		}
+	}
 }
