@@ -1,14 +1,14 @@
 <div class="my-info">
-	<a class="header" href="#">
-		<div class="avatar">
-			<!-- img -->
-			<div style="background: linear-gradient(100deg, #6278B3, #8D6D9B);">
-				<div style="color: #FFF2; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">头像</div>
-			</div>
-		</div>
+	<a class="header" href="/">
 		<div class="name">
 			<div class="name-main">あめろ</div>
 			<div class="name-sub">amero</div>
+		</div>
+		<div class="avatar">
+			<!--img src="/assets/images/?" alt="amero的头像"-->
+			<div style="background: linear-gradient(100deg, #6278B3, #8D6D9B);">
+				<div style="color: #FFF2; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">头像</div>
+			</div>
 		</div>
 	</a>
 
@@ -24,20 +24,24 @@
 
 <div class="divider"></div>
 
-<a class="prev-post" href="#">
+{%- if page.previous -%}
+<a class="prev-post" href="{{ page.previous.url }}">
 	<div class="indicator">前一篇</div>
-	<div class="title">文章标题文章标题</div>
+	<div class="title">{{ page.previous.title }}</div>
 	<div class="image">
 		<!-- img -->
 		<div style="background: linear-gradient(100deg, #6278B3, #8D6D9B);"></div>
 	</div>
 </a>
+{%- endif -%}
 
-<a class="next-post" href="#">
+{%- if page.next -%}
+<a class="next-post" href="{{ page.next.url }}">
 	<div class="indicator">后一篇</div>
-	<div class="title">文章标题文章标题</div>
+	<div class="title">{{ page.next.title }}</div>
 	<div class="image">
 		<!-- img -->
 		<div style="background: linear-gradient(100deg, #6278B3, #8D6D9B);"></div>
 	</div>
 </a>
+{%- endif -%}

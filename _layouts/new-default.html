@@ -3,16 +3,22 @@
   {%- include new-head.html -%}
 
   <body>
-		<div class="left-panel">
-			{%- include left-panel.html -%}
+
+		<div class="site-cols">
+			<div class="left-panel">
+				{%- include left-panel.html -%}
+			</div>
+	
+			<div class="content">
+				{{- content -}}
+			</div>
+	
+			<div class="right-panel">
+				{%- include right-panel.html -%}
+			</div>
 		</div>
 
-		<div class="content">
-			{{- content -}}
-		</div>
+		{%- include new-footer.html -%}
 
-		<div class="right-panel">
-			{%- include right-panel.html -%}
-		</div>
   </body>
 </html>
