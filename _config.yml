@@ -32,8 +32,8 @@ show_excerpts: true
 minima:
   date_format: "%F"
 
-sass:
-  style: compressed
+# sass:
+#   style: compressed
 
 # plugins:
 #   - jekyll-sitemap
