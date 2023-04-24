@@ -1,8 +1,10 @@
 @import "common.scss";
 
+
 $site-footer-height: 3rem;
 $layout-radius: .5rem;
 $layout-shadow: 0 1px 22px rgba(0, 0, 0, .1);
+$left-panel-width: 16rem;
 
 * {
 	box-sizing: border-box;
@@ -31,7 +33,7 @@ body {
 }
 
 .left-panel, .right-panel {
-	width: 16rem;
+	width: $left-panel-width;
 	position: sticky;
 	top: 1rem;
 }
@@ -55,6 +57,8 @@ body {
 	$avatar-width: 10rem;
 	$avatar-height: 9rem;
 	$avatar-circle-radius: 6.5rem;
+	$avatar-circle-x: $avatar-width - $avatar-circle-radius;
+	$avatar-circle-y: $avatar-height - $avatar-circle-radius;
 
 	.header {
 		display: block;
@@ -62,54 +66,79 @@ body {
 		position: relative;
 		margin-bottom: 1rem;
 
+		.avatar {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: $avatar-width;
+			height: $avatar-height;
+			transition: all .27s;
+			clip-path: circle(farthest-side at $avatar-circle-x $avatar-circle-y);
+	
+			.content {
+				position: relative;
+				height: 100%;
+				max-width: $left-panel-width;
+	
+				.image {
+					display: block;
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
+					@extend %full;
+				}
+	
+				&::after {
+					content: attr(data-prompt);
+					@extend %center;
+					@extend %full;
+					color: transparent;
+					transition: color .2s linear, background-color .25s linear, font-size .25s;
+					font-size: 1rem;
+					position: absolute;
+				}
+			}
+		}
+	
+		.name {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 8rem;
+			text-align: center;
+			font-weight: 700;
+			transition: all .2s;
+	
+			&__main {
+				font-size: 1.75rem;
+			}
+		}
+
 		&:hover {
 			.avatar {
-				width: 100%;
+				// 使圆覆盖整个.header
+				width:
+					// $avatar-circle-x +
+					// sqrt(
+					// 	pow($left-panel-width - $avatar-circle-x, 2) +
+					// 	pow($header-height - $avatar-circle-y, 2));
+					17.6rem;
 				height: 100%;
-				clip-path: none;
+
+				.content::after {
+					color: #FFF;
+					background-color: #0005;
+					font-size: 2rem;
+				}
 			}
 			.name {
 				right: -3rem;
 			}
+
 		}
 	}
 
-	.avatar {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: $avatar-width;
-		height: $avatar-height;
-		transition: all .3s;
-		clip-path: circle(
-			$avatar-circle-radius at
-			$avatar-width - $avatar-circle-radius
-			$avatar-height - $avatar-circle-radius
-		);
-
-		> img, > div {
-			display: block;
-			height: 100%;
-			width: 100%;
-			object-fit: cover;
-			position: absolute;
-			inset: 0;
-		}
-	}
-
-	.name {
-		position: absolute;
-		right: 0;
-		bottom: 0;
-		width: 8rem;
-		text-align: center;
-		font-weight: 700;
-		transition: all .3s;
-	}
-
-	.name-main {
-		font-size: 1.75rem;
-	}
+	
 
 	.nav ul {
 		display: grid;
@@ -142,24 +171,25 @@ body {
 	height: 5rem;
 	position: relative;
 
-	.image {
+	.post-image {
 		position: absolute;
 		top: 0;
 		bottom: 0;
 		width: 6.25rem;
-		color: transparent;
 		transition: all .25s;
-		img, div {
+		.image {
 			display: block;
 			height: 100%;
 			width: 100%;
 			object-fit: cover;
 		}
 		&::after {
-			content: "查看";
-			position: absolute;
-			inset: 0;
-			@extend .center;
+			content: attr(data-prompt);
+			@extend %full;
+			@extend %center;
+			font-size: .875rem;
+			color: transparent;
+			transition: color .2s linear, background-color .25s, font-size .25s;
 		}
 	}
 
@@ -186,11 +216,13 @@ body {
 	}
 
 	&:hover {
-		box-shadow: inset 0 100%;
-
-		.image {
+		.post-image {
 			width: 10rem;
-			color: #FFF;
+			&::after {
+				color: #FFF;
+				background-color: #0005;
+				font-size: 1.125rem;
+			}
 		}
 	}
 }
@@ -198,7 +230,7 @@ body {
 .prev-post {
 	padding: .25rem 1rem .25rem 7rem;
 
-	.image {
+	.post-image {
 		left: 0;
 		clip-path: circle(farthest-side at left);
 	}
@@ -213,7 +245,7 @@ body {
 .next-post {
 	padding: .25rem 7rem .25rem 1rem;
 
-	.image {
+	.post-image {
 		right: 0;
 		clip-path: circle(farthest-side at right);
 	}
@@ -239,7 +271,7 @@ body {
 // MIDDLE PANEL
 // ===================================
 
-.content {
+.site-content {
 	@include card;
 	width: 56rem;
 	padding: 4rem 4rem 2rem;
@@ -338,7 +370,7 @@ body {
 		margin-top: 1rem;
 		position: relative;
 		> a {
-			@extend .center;
+			@extend %center;
 			position: absolute;
 			inset: 0;
 		}
@@ -349,7 +381,7 @@ body {
 
 // FOOTER
 .site-footer {
-	@extend .center;
+	@extend %center;
 	height: $site-footer-height;
 	small {
 		font-size: .875rem;

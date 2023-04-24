@@ -1,13 +1,13 @@
 <div class="my-info">
 	<a class="header" href="/">
 		<div class="name">
-			<div class="name-main">あめろ</div>
-			<div class="name-sub">amero</div>
+			<div class="name__main">あめろ</div>
+			<div class="name__sub">amero</div>
 		</div>
 		<div class="avatar">
-			<!--img src="/assets/images/?" alt="amero的头像"-->
-			<div style="background: linear-gradient(100deg, #6278B3, #8D6D9B);">
-				<div style="color: #FFF2; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">头像</div>
+			<div class="content" data-prompt="首页">
+				<img class="image" src="/assets/images/nopush/default.png" alt="amero的头像">
+				<!-- <div class="image" style="background: linear-gradient(100deg, #6278B3, #8D6D9B);"></div> -->
 			</div>
 		</div>
 	</a>
@@ -28,9 +28,9 @@
 <a class="prev-post" href="{{ page.previous.url }}">
 	<div class="indicator">前一篇</div>
 	<div class="title">{{ page.previous.title }}</div>
-	<div class="image">
-		<!-- img -->
-		<div style="background: linear-gradient(100deg, #6278B3, #8D6D9B);"></div>
+	<div class="post-image" data-prompt="查看">
+		<img class="image" src="/assets/images/nopush/default.png" alt="文章头图">
+		<!-- <div class="image" style="background: linear-gradient(100deg, #6278B3, #8D6D9B);"></div> -->
 	</div>
 </a>
 {%- endif -%}
@@ -39,9 +39,9 @@
 <a class="next-post" href="{{ page.next.url }}">
 	<div class="indicator">后一篇</div>
 	<div class="title">{{ page.next.title }}</div>
-	<div class="image">
-		<!-- img -->
-		<div style="background: linear-gradient(100deg, #6278B3, #8D6D9B);"></div>
+	<div class="post-image" data-prompt="查看">
+		<img class="image" src="/assets/images/nopush/default.png" alt="文章头图">
+		<!-- <div class="image" style="background: linear-gradient(100deg, #6278B3, #8D6D9B);"></div> -->
 	</div>
 </a>
 {%- endif -%}

@@ -1,9 +1,10 @@
-.center {
+%center {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-%block-link {
-	display: block;
+%full {
+	position: absolute;
+	inset: 0;
 }
