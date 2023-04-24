@@ -1,3 +1,9 @@
+::selection {
+	background-color: rgba(78, 34, 120, 0.8);
+	color: #FFF !important;
+	text-emphasis-color: #FFF !important;
+}
+
 // 着重号
 em {
 	font-style: normal;
@@ -5,33 +11,64 @@ em {
 	        text-emphasis: dot;
 	-webkit-text-emphasis-position: under right;
 	        text-emphasis-position: under right;
+	// 这个逼玩意能不能不要改我行高啊！
 }
 
 // 黑幕
+.truth, .truth a {
+	color: transparent;
+	transition: color .15s linear;
+}
+
 .truth {
 	$bgcolor: black;
 	$radius: .2rem;
 
-	border-radius: $radius;
-	box-decoration-break: clone;
 	background-color: $bgcolor;
-	color: transparent;
-	transition: color .14s linear;
+	border-radius: $radius;	
 
+	// 内嵌ruby	
+	&:has(> ruby:first-child) {
+		border-top-left-radius: 0;
+	}
+	&:has(> ruby:last-child) {
+		border-top-right-radius: 0;
+	}
 	rt {
 		background-color: $bgcolor;
-		border-radius: $radius $radius 0 0;
+		&:first-of-type {
+			border-top-left-radius: $radius;
+		}
+		&:last-of-type {
+			border-top-right-radius: $radius;
+		}
+	}
+
+	// 内嵌em
+	em {
+		text-emphasis-color: black;
 	}
 
 	img {
 		opacity: 0;
-		transition: opacity .14s linear;
+		transition: opacity .15s linear;
 	}
 
 	&:hover {
 		color: white;
+		a {
+			color: rgb(165, 213, 255);
+		}
 		img {
 			opacity: 1;
 		}
 	}
+}
+
+// Ruby
+rp {
+	display: inline;
+	position: fixed;
+	bottom: -9em;
+	opacity: 0;
 }

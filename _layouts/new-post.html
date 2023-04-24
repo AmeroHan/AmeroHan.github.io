@@ -3,24 +3,62 @@ layout: new-default
 ---
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {{ page.date | date: date_format }}
-      </time>
-      {%- if page.author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {%- endif -%}
+	<div class="post-label">
+		<div class="post-category-wrapper">
+			分类：
+			{%- if page.tags.size > 0 -%}
+				<ul class="post-category">
+					{%- for category in page.categories -%}
+						<li>
+							<a href="#">{{ category }}</a>
+						</li>
+					{%- endfor -%}
+				</ul>
+			{%- else -%}
+				无
+			{%- endif -%}
+		</div>
+		
+		<div class="post-tag-wrapper">
+			标签：
+			{%- if page.tags.size > 0 -%}
+				<ul class="post-tag">
+					{%- for tag in page.tags -%}
+						<li>
+							<a href="#">{{ tag }}</a>
+						</li>
+					{%- endfor -%}
+				</ul>
+			{%- else -%}
+				无
+			{%- endif -%}
+		</div>
+	</div>
+
+	<header class="post-header">
+		<h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+		<p class="post-meta">
+			<time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+				{{ page.date | date: date_format }}
+			</time>
+			{%- if page.author -%}
+				• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+			{%- endif -%}
 		</p>
-  </header>
+	</header>
 
-  <div class="post-content" itemprop="articleBody">
-    {{ content }}
-  </div>
+	{%- if page.image -%}
+		<div class="post-image">
+			<img src="{{ page.image.src | default: page.image }}" alt="{{ page.image.alt | default: '文章头图' }}">
+		</div>
+	{%- endif -%}
 
-  {%- if site.disqus.shortname -%}
-    {%- include disqus_comments.html -%}
-  {%- endif -%}
+	<div class="post-content" itemprop="articleBody">
+		{{ content }}
+	</div>
+
+	{%- if site.disqus.shortname -%}
+		{%- include disqus_comments.html -%}
+	{%- endif -%}
 </article>

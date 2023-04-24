@@ -1,0 +1,209 @@
+.my-info {
+	@extend %card;
+
+	$header-height: 9rem;
+	$avatar-width: 10rem;
+	$avatar-height: 9rem;
+	$avatar-circle-radius: 6.5rem;
+	$avatar-circle-x: $avatar-width - $avatar-circle-radius;
+	$avatar-circle-y: $avatar-height - $avatar-circle-radius;
+
+	.header {
+		display: block;
+		height: $header-height;
+		position: relative;
+		margin-bottom: 1rem;
+
+		.avatar {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: $avatar-width;
+			height: $avatar-height;
+			transition: all .27s;
+			clip-path: circle(farthest-side at $avatar-circle-x $avatar-circle-y);
+	
+			.content {
+				position: relative;
+				height: 100%;
+				max-width: $left-panel-width;
+	
+				.image {
+					@extend %image-cover;
+					@extend %full;
+				}
+	
+				&::after {
+					content: attr(data-prompt);
+					@extend %center-items;
+					@extend %full;
+					color: transparent;
+					transition: color .2s linear, background-color .25s linear, font-size .25s;
+					font-size: 1rem;
+					position: absolute;
+				}
+			}
+		}
+	
+		.name {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 8rem;
+			text-align: center;
+			line-height: 1;
+			font-weight: 700;
+			transition: right .2s;
+	
+			&__main {
+				font-size: 1.75rem;
+			}
+		}
+
+		&:hover {
+			.avatar {
+				// 使圆覆盖整个.header
+				width:
+					// $avatar-circle-x +
+					// sqrt(
+					// 	pow($left-panel-width - $avatar-circle-x, 2) +
+					// 	pow($header-height - $avatar-circle-y, 2));
+					17.6rem;
+				height: 100%;
+
+				.content::after {
+					color: #FFF;
+					background-color: #0005;
+					font-size: 2rem;
+				}
+			}
+			.name {
+				right: -3rem;
+			}
+
+		}
+	}
+
+	
+
+	.nav ul {
+		@extend %block-list;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		font-size: .875rem;
+		> li {
+			> a {
+				display: block;
+				text-align: center;
+				padding: .75rem .25rem;
+			}
+			&:hover {
+				background-color: #0001
+			}
+		}
+	}
+}
+
+
+.prev-post, .next-post {
+	@extend %card;
+	cursor: pointer;
+	overflow: hidden;
+	margin-bottom: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 5rem;
+	position: relative;
+
+	.post-image {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 6.25rem;
+		transition: all .25s;
+		.image {
+			@extend %image-cover;
+		}
+		&::after {
+			content: attr(data-prompt);
+			@extend %full;
+			@extend %center-items;
+			font-size: .875rem;
+			color: transparent;
+			transition: color .2s linear, background-color .25s, font-size .25s;
+		}
+	}
+
+	.indicator {
+		height: 1.125rem;
+		font-size: .875rem;
+		transition: transform .25s;
+	}
+
+	.title {
+		font-weight: 700;
+		$lh: 1.25rem;
+		line-height: $lh;
+		max-height: $lh * 2;
+		transition: transform .25s;
+		overflow: hidden;
+		
+		// 超出的文字用省略号表示
+		// 兼容性稍差，考虑换用JS
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		text-overflow: ellipsis;
+	}
+
+	&:hover {
+		.post-image {
+			width: 10rem;
+			&::after {
+				color: #FFF;
+				background-color: #0005;
+				font-size: 1.125rem;
+			}
+		}
+	}
+}
+
+.prev-post {
+	padding: .25rem 1rem .25rem 7rem;
+
+	.post-image {
+		left: 0;
+		clip-path: circle(farthest-side at left);
+	}
+	
+	&:hover {
+		.indicator, .title {
+			transform: translateX(1.5rem);
+		}
+	}
+}
+
+.next-post {
+	padding: .25rem 7rem .25rem 1rem;
+
+	.post-image {
+		right: 0;
+		clip-path: circle(farthest-side at right);
+	}
+
+	&:hover {
+		.indicator, .title {
+			transform: translateX(-1.5rem);
+		}
+	}
+}
+
+.divider {
+	margin: 2rem auto;
+	height: .25rem;
+	width: 5rem;
+	border-radius: .125rem;
+	background: #999;
+	box-shadow: $layout-shadow;
+}

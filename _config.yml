@@ -18,6 +18,7 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+# 信息
 title: amero
 author: amero
 description: >-
@@ -25,6 +26,11 @@ description: >-
 twitter_username: amero_zZ
 github_username:  AmeroHan
 lang: zh-CN
+
+# 设置
+## 分页
+# paginate: 2
+# paginate_path: "/blog/page:num/"
 
 # Build settings
 theme: minima
@@ -36,6 +42,7 @@ minima:
 #   style: compressed
 
 # plugins:
+#   - jekyll-paginate
 #   - jekyll-sitemap
 #   - jekyll-seo-tag
 

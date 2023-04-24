@@ -1,0 +1,1 @@
+<ruby>{{ include.t | replace: '|', '</rt><rp>）</rp>' | replace: '\', '<rp>（</rp><rt>' }}</rt><rp>）</rp></ruby>

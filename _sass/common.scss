@@ -1,4 +1,9 @@
-%center {
+$site-footer-height: 3rem;
+$layout-radius: .5rem;
+$layout-shadow: 0 1px 22px rgba(0, 0, 0, .1);
+$left-panel-width: 16rem;
+
+%center-items {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -7,4 +12,23 @@
 %full {
 	position: absolute;
 	inset: 0;
+}
+
+%image-cover {
+	display: block;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+%block-list {
+	padding: 0;
+	list-style: none;
+}
+
+%card {
+	border-radius: $layout-radius;
+	box-shadow: $layout-shadow;
+	background-color: #FFF;
+	overflow: hidden;
 }

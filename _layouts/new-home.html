@@ -1,0 +1,46 @@
+---
+layout: new-default
+---
+<div class="home">
+	{%- if page.title -%}
+    <h1>{{ page.title }}</h1>
+  {%- endif -%}
+
+	<h2>文章</h2>
+	{%- if site.posts.size > 0 -%}
+		
+		<ul class="page-list">
+			{%- for post in site.posts -%}
+				<li><article>
+					<h3>
+						<a href="{{ post.url |relative_url }}">
+							{{ post.title | escape }}
+						</a>
+					</h3>
+					<blockquote class="excerpt">
+						{{ post.excerpt
+							| replace: '<h2', '<i data-element="h2"'
+							| replace: '</h2>', '</i>'
+							| replace: '<h3', '<i data-element="h3"'
+							| replace: '</h3>', '</i>'
+							| replace: '<h4', '<i data-element="h4"'
+							| replace: '</h4>', '</i>'
+							| replace: '<h5', '<i data-element="h5"'
+							| replace: '</h5>', '</i>'
+							| replace: '<h6', '<i data-element="h6"'
+							| replace: '</h6>', '</i>'
+						}}
+					</blockquote>
+					<div class="category">
+						<i>图标</i>
+						<a href="#">父分类</a>
+						<span>/</span>
+						<a href="#">子分类</a>
+					</div>
+				</article></li>
+			{%- endfor -%}
+		</ul>
+	{%- else -%}
+		<p>目前还没有文章。</p>
+	{%- endif -%}
+</div>

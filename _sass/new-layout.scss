@@ -1,20 +1,16 @@
-@import "common.scss";
-
-
-$site-footer-height: 3rem;
-$layout-radius: .5rem;
-$layout-shadow: 0 1px 22px rgba(0, 0, 0, .1);
-$left-panel-width: 16rem;
-
 * {
 	box-sizing: border-box;
 	margin: 0;
 }
 
+a {
+	text-decoration: none;
+}
+
 :root {
 	background-color: #E8E7EB;
 	font-size: 16px;
-	line-height: 1;
+	line-height: 1.25;
 }
 
 body {
@@ -38,285 +34,9 @@ body {
 	top: 1rem;
 }
 
-@mixin card($radius: $layout-radius) {
-	border-radius: $radius;
-	box-shadow: $layout-shadow;
-	background-color: #FFF;
-	overflow: hidden;
-}
-
-
-// LEFT PANEL
-// ===================================
-
-
-.my-info {
-	@include card;
-
-	$header-height: 9rem;
-	$avatar-width: 10rem;
-	$avatar-height: 9rem;
-	$avatar-circle-radius: 6.5rem;
-	$avatar-circle-x: $avatar-width - $avatar-circle-radius;
-	$avatar-circle-y: $avatar-height - $avatar-circle-radius;
-
-	.header {
-		display: block;
-		height: $header-height;
-		position: relative;
-		margin-bottom: 1rem;
-
-		.avatar {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: $avatar-width;
-			height: $avatar-height;
-			transition: all .27s;
-			clip-path: circle(farthest-side at $avatar-circle-x $avatar-circle-y);
-	
-			.content {
-				position: relative;
-				height: 100%;
-				max-width: $left-panel-width;
-	
-				.image {
-					display: block;
-					height: 100%;
-					width: 100%;
-					object-fit: cover;
-					@extend %full;
-				}
-	
-				&::after {
-					content: attr(data-prompt);
-					@extend %center;
-					@extend %full;
-					color: transparent;
-					transition: color .2s linear, background-color .25s linear, font-size .25s;
-					font-size: 1rem;
-					position: absolute;
-				}
-			}
-		}
-	
-		.name {
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			width: 8rem;
-			text-align: center;
-			font-weight: 700;
-			transition: all .2s;
-	
-			&__main {
-				font-size: 1.75rem;
-			}
-		}
-
-		&:hover {
-			.avatar {
-				// 使圆覆盖整个.header
-				width:
-					// $avatar-circle-x +
-					// sqrt(
-					// 	pow($left-panel-width - $avatar-circle-x, 2) +
-					// 	pow($header-height - $avatar-circle-y, 2));
-					17.6rem;
-				height: 100%;
-
-				.content::after {
-					color: #FFF;
-					background-color: #0005;
-					font-size: 2rem;
-				}
-			}
-			.name {
-				right: -3rem;
-			}
-
-		}
-	}
-
-	
-
-	.nav ul {
-		display: grid;
-		padding: 0;
-		list-style: none;
-		grid-template-columns: 1fr 1fr;
-		font-size: .875rem;
-		> li {
-			> a {
-				display: block;
-				text-align: center;
-				padding: .75rem .25rem;
-			}
-			&:hover {
-				background-color: #0001
-			}
-		}
-	}
-}
-
-
-.prev-post, .next-post {
-	@include card;
-	cursor: pointer;
-	overflow: hidden;
-	margin-bottom: 1rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	height: 5rem;
-	position: relative;
-
-	.post-image {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		width: 6.25rem;
-		transition: all .25s;
-		.image {
-			display: block;
-			height: 100%;
-			width: 100%;
-			object-fit: cover;
-		}
-		&::after {
-			content: attr(data-prompt);
-			@extend %full;
-			@extend %center;
-			font-size: .875rem;
-			color: transparent;
-			transition: color .2s linear, background-color .25s, font-size .25s;
-		}
-	}
-
-	.indicator {
-		height: 1rem;
-		font-size: .875rem;
-		transition: transform .25s;
-	}
-
-	.title {
-		font-weight: 700;
-		$lh: 1.25rem;
-		line-height: $lh;
-		max-height: $lh * 2;
-		transition: transform .25s;
-		overflow: hidden;
-		
-		// 超出的文字用省略号表示
-		// 兼容性稍差，考虑换用JS
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 2;
-		text-overflow: ellipsis;
-	}
-
-	&:hover {
-		.post-image {
-			width: 10rem;
-			&::after {
-				color: #FFF;
-				background-color: #0005;
-				font-size: 1.125rem;
-			}
-		}
-	}
-}
-
-.prev-post {
-	padding: .25rem 1rem .25rem 7rem;
-
-	.post-image {
-		left: 0;
-		clip-path: circle(farthest-side at left);
-	}
-	
-	&:hover {
-		.indicator, .title {
-			transform: translateX(1.5rem);
-		}
-	}
-}
-
-.next-post {
-	padding: .25rem 7rem .25rem 1rem;
-
-	.post-image {
-		right: 0;
-		clip-path: circle(farthest-side at right);
-	}
-
-	&:hover {
-		.indicator, .title {
-			transform: translateX(-1.5rem);
-		}
-	}
-}
-
-.divider {
-	margin: 2rem auto;
-	height: .25rem;
-	width: 5rem;
-	border-radius: .125rem;
-	background: #999;
-	box-shadow: $layout-shadow;
-}
-
-
-
-// MIDDLE PANEL
-// ===================================
-
 .site-content {
-	@include card;
 	width: 56rem;
-	padding: 4rem 4rem 2rem;
-
-	header {
-		margin-bottom: 1rem;
-		// position: sticky;
-		// top: 0;
-	}
-
-	h1 {
-		font-size: 2.25rem;
-		line-height: 1.2;
-		margin: 1rem 0 .875rem;
-		&::after {
-			content: "";
-			display: block;
-			height: .125rem;
-			margin: 1rem -.5rem 0;
-			background-color: #6A55A8;
-		}
-	}
-
-	.post-content {
-		$vertical-gap: 1rem;
-
-		min-height: 32rem;
-		line-height: 1.6;
-		text-align: justify;
-		h2, h3, h4, h5, h6, p, dl, ol, ul {
-			margin-bottom: $vertical-gap;
-		}
-		p {
-			text-indent: 2em;
-			text-indent: 2ic;
-			margin-bottom: 1em;
-		}
-	}
-	
-
 }
-
-
-// RIGHT PANEL
-// ===================================
 
 .right-panel {
 	display: flex;
@@ -324,64 +44,10 @@ body {
 	margin-top: 5rem;
 }
 
-.toc {
-	margin-top: .5rem;
-
-	h2 {
-		padding-left: .5rem;
-		margin-bottom: 1rem;
-	}
-	ol {
-		padding: 0;
-		list-style: none;
-		line-height: 1.25;
-		font-size: .875rem;
-	}
-	li {		
-		
-		&:hover {
-			background-color: #FFFA;
-		}
-
-		&.current {
-			background-color: #FFF;
-		}
-
-		a {
-			display: block;
-			padding: .5rem;
-			
-		}
-	}
-}
-
-.site-tools {
-	bottom: 2rem;
-	padding: 0;
-	list-style: none;
-
-	> li {
-		@include card(50%);
-		width: 2.5rem;
-		height: 2.5rem;
-		border-radius: 50%;
-		font-size: .75rem;
-		overflow: hidden;
-		margin-top: 1rem;
-		position: relative;
-		> a {
-			@extend %center;
-			position: absolute;
-			inset: 0;
-		}
-	}
-}
-
-
 
 // FOOTER
 .site-footer {
-	@extend %center;
+	@extend %center-items;
 	height: $site-footer-height;
 	small {
 		font-size: .875rem;

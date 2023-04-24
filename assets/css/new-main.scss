@@ -1,4 +1,11 @@
 ---
 ---
 
-@import "normalize.scss", "new-layout.scss", "typography.scss";
+@import
+	"normalize.scss",
+	"common.scss",
+	"new-layout.scss",
+	"navigation.scss",
+	"site-tools.scss",
+	"article.scss",
+	"typography.scss";
