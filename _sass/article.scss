@@ -1,3 +1,5 @@
+$lh: 1.6;
+
 h2 {
 	margin-bottom: 1rem;
 }
@@ -49,34 +51,35 @@ h2 {
 	}
 }
 
+$padding-horizontal: 4rem;
+
 .post {
 	@extend %card;
 
-	padding: 3rem 4rem 2rem;
+	padding: 3rem 0 2rem;
 
-	.post-label {
+	&-label {
 		display: flex;
 		flex-wrap: wrap;
 		font-size: .875rem;
 		line-height: 1.5;
 		color: #777;
-		margin: 0 -2rem -.5rem 0;
+		margin-left: $padding-horizontal;
+		margin-right: $padding-horizontal - 2rem;
+		margin-bottom: -.5rem;
 	}
 	
-	.post-category-wrapper {
+	&-category-wrapper {
 		flex-grow: 1;
 	}
 
-	.post-category, .post-tag {
+	&-category, &-tag {
 		@extend %block-list;
 		display: inline-flex;
 		margin-right: 1.5rem;
 		li {
 			margin: 0 .5rem .5rem 0;
-			// &:not(:last-child)::after {
-			// 	content: "/";
-			// 	margin: 0 .2em;
-			// }
+			
 			> a {
 				@extend %center-items;
 				background-color: #00000011;
@@ -87,8 +90,8 @@ h2 {
 		}		
 	}
 
-	.post-header {
-		margin: 1rem 0;
+	&-header {
+		margin: 1rem $padding-horizontal;
 		// position: sticky;
 		// top: 0;
 	}
@@ -106,40 +109,134 @@ h2 {
 		// }
 	}
 
-	.post-meta {
+	&-meta {
 		color: #777;
 	}
 
 	.post-image {
 		height: 16rem;
-		margin: 0 -4rem;
-		position: relative;
 		img {
 			@extend %image-cover;
 		}
+		@extend %full-after;
 		&::after {
-			content: "";
-			@extend %full;
 			box-shadow:
-				inset 0 0.5rem 0.5rem -0.5rem #0005,
-				inset 0 -0.25rem 0.5rem -0.5rem #0005;
-			pointer-events: none;
+				inset 0 0.25rem 0.25rem -0.25rem #0004,
+				inset 0 -0.25rem 0.25rem -0.25rem #0001;
+		}
+	}
+}
+
+.post-content {
+	$vertical-gap: 1rem;
+	padding: 1rem $padding-horizontal 0;
+	min-height: 32rem;
+	line-height: $lh;
+	text-align: justify;
+
+	h2, h3, h4, h5, h6, p, dl, ol, ul {
+		margin-bottom: $vertical-gap;
+	}
+
+	p {
+		// text-indent: 2em;
+		// text-indent: 2ic;
+		margin-bottom: 1em;
+	}
+
+	ol, ul {
+		padding-left: 2rem;
+		li p {
+			text-indent: 0;
 		}
 	}
 
-	.post-content {
-		$vertical-gap: 1rem;
-		margin-top: 1rem;
-		min-height: 32rem;
-		line-height: 1.6;
-		text-align: justify;
-		h2, h3, h4, h5, h6, p, dl, ol, ul {
-			margin-bottom: $vertical-gap;
+	pre, code {
+		tab-size: 4;
+	}
+
+	> .highlighter-rouge {
+		font-size: .875rem;
+		margin-left: -$padding-horizontal;
+		margin-right: -$padding-horizontal;
+		padding: 1rem $padding-horizontal;
+		margin-bottom: 1rem;
+		background-color: #fafafb;
+		line-height: 1.4;
+		
+		&::after {
+			box-shadow:
+				inset 0 0.25rem 0.25rem -0.25rem #0004,
+				inset 0 -0.25rem 0.25rem -0.25rem #0001;
 		}
-		p {
-			text-indent: 2em;
-			text-indent: 2ic;
-			margin-bottom: 1em;
+		@extend %full-after;
+	}
+
+	:target {
+		outline: solid .25rem rgba(66,31,255,.3);
+		border-radius: .25rem;
+		animation: tgt-fade 2s ease-in forwards;
+		@keyframes tgt-fade {
+			from {
+				outline-color: rgba(66,31,255,0);
+			}
+			25% {
+				outline-color: rgba(66,31,255,.3)
+			}
+			75% {
+				outline-color: rgba(66,31,255,.3)
+			}
+			to {
+				outline-color: rgba(66,31,255,0);
+			}
 		}
 	}
+}
+ 
+
+// 引用
+blockquote {
+	padding-left: 2rem;
+	background:
+		url(/assets/images/nopush/quote_left.svg)
+		0 .25rem / 1.5rem no-repeat;
+}
+
+// 任务列表
+.task-list {
+	list-style: none;
+}
+.task-list-item-checkbox {
+	display: inline-block;
+	appearance: none;
+	width: 1em;
+	height: 1em;
+	margin-left: -1.5rem;
+	margin-right: .5rem;
+	border-radius: .25em;
+	border: solid .1em #774cac;
+	background-color: #774cac20;
+	vertical-align: top;
+	position: relative;
+	top: #{($lh - 1) / 2}em;
+
+	&:checked {
+		background:
+			// 源文件在assets/images/nopush/check.svg
+			url("data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjAiIGlkPSJjaGVjay1pbWciIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDY0IDQ3Ij48cG9seWxpbmUgcG9pbnRzPSI0LDE4IDI1LDM5IDYwLDQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRiIgc3Ryb2tlLXdpZHRoPSIxMCI+PC9wb2x5bGluZT48L3N2Zz4=")
+			center / contain no-repeat #774cac;
+	}
+}
+
+// 脚注
+.footnote {
+	display: inline-block;
+	text-indent: 0;
+	background-color: #774cac;
+	line-height: 1rem;
+	min-width: 1rem;
+	color: #fff;
+	border-radius: 1rem;
+	text-align: center;
+	padding: 0 .375em;
 }

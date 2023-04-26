@@ -1,11 +1,13 @@
+# Jekyll
 _site
+_drafts
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
-
+# 依赖
 .bundle
 vendor
-
+# 工作区
 .vscode
-
+# 自定义
 nopush

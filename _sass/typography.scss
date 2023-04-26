@@ -1,7 +1,6 @@
-::selection {
-	background-color: rgba(78, 34, 120, 0.8);
-	color: #FFF !important;
-	text-emphasis-color: #FFF !important;
+del {
+	color: #666;
+	text-decoration-color: black;
 }
 
 // 着重号
@@ -46,7 +45,8 @@ em {
 
 	// 内嵌em
 	em {
-		text-emphasis-color: black;
+		-webkit-text-emphasis-color: black;
+		        text-emphasis-color: black;
 	}
 
 	img {

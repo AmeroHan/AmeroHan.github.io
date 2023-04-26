@@ -25,7 +25,7 @@
 <div class="divider"></div>
 
 {%- if page.previous -%}
-<a class="prev-post" href="{{ page.previous.url }}">
+<a class="nav-post-link prev-post" href="{{ page.previous.url }}">
 	<div class="indicator">前一篇</div>
 	<div class="title">{{ page.previous.title }}</div>
 	<div class="post-image" data-prompt="查看">
@@ -36,7 +36,7 @@
 {%- endif -%}
 
 {%- if page.next -%}
-<a class="next-post" href="{{ page.next.url }}">
+<a class="nav-post-link next-post" href="{{ page.next.url }}">
 	<div class="indicator">后一篇</div>
 	<div class="title">{{ page.next.title }}</div>
 	<div class="post-image" data-prompt="查看">

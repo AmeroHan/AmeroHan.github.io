@@ -27,10 +27,12 @@
 				position: relative;
 				height: 100%;
 				max-width: $left-panel-width;
+				overflow: hidden;
 	
 				.image {
 					@extend %image-cover;
 					@extend %full;
+					transition: transform .6s;
 				}
 	
 				&::after {
@@ -71,6 +73,11 @@
 					17.6rem;
 				height: 100%;
 
+				.content .image {
+					transform: scale(1.2);
+					transition-duration: .4s;
+				}
+
 				.content::after {
 					color: #FFF;
 					background-color: #0005;
@@ -83,7 +90,6 @@
 
 		}
 	}
-
 	
 
 	.nav ul {
@@ -105,7 +111,7 @@
 }
 
 
-.prev-post, .next-post {
+.nav-post-link {
 	@extend %card;
 	cursor: pointer;
 	overflow: hidden;
@@ -124,6 +130,7 @@
 		transition: all .25s;
 		.image {
 			@extend %image-cover;
+			transition: transform .6s;
 		}
 		&::after {
 			content: attr(data-prompt);
@@ -164,6 +171,10 @@
 				color: #FFF;
 				background-color: #0005;
 				font-size: 1.125rem;
+			}
+			.image {
+				transition-duration: .3s;
+				transform: scale(1.2);
 			}
 		}
 	}
