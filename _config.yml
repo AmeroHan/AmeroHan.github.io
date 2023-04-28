@@ -8,11 +8,13 @@ description: >-
   amero的个人网站。
 twitter_username: amero_zZ
 github_username:  AmeroHan
+repo_file_url: https://github.com/AmeroHan/AmeroHan.github.io/blob/main/
 lang: zh-CN
 
 # 设置
 timezone: Asia/Shanghai
 permalink: /:categories/:year/:title
+url: https://amero.moe
 
 # kramdown:
 #   parse_block_html: true

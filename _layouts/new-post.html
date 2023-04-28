@@ -6,7 +6,7 @@ layout: new-default
 	<div class="post-label">
 		<div class="post-category-wrapper">
 			分类：
-			{%- if page.tags.size > 0 -%}
+			{%- if page.categories.size > 0 -%}
 				<ul class="post-category">
 					{%- for category in page.categories -%}
 						<li>
@@ -58,6 +58,9 @@ layout: new-default
 		{{ content }}
 	</div>
 
+	<footer>
+		<a rel="external" target="_blank" href="{{ site.repo_file_url }}{{ page.path}}">本文章源文件</a>
+	</footer>
 	{%- if site.disqus.shortname -%}
 		{%- include disqus_comments.html -%}
 	{%- endif -%}

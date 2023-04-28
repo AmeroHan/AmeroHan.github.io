@@ -1,3 +1,4 @@
+{% if page.url != '/' -%}
 <aside class="toc">
 	<h2>目录</h2>
 	<ol>
@@ -10,6 +11,7 @@
 		<li><a href="#">标题7</a></li>
 	</ol>
 </aside>
+{%- endif -%}
 
 <ul class="site-tools">
 	<li><a href="#">

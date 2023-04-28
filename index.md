@@ -1,5 +1,6 @@
 ---
-layout: home
+layout: new-home
+title: amero_zZ
 list_title: 文章
 ---
 
