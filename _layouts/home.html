@@ -28,8 +28,7 @@
 								<li><article {% if post.lang %}lang="{{ post.lang }}"{% endif %}>
 									<header>
 										<div class="image-wrapper">
-											<img class="image" src="/assets/images/nopush/default.png" alt="文章图像">
-											<!-- <div class="image" style="background: linear-gradient(100deg, #6278B3, #8D6D9B);"></div> -->
+											{%- include image.html image=post.image defaultSrc='https://s2.loli.net/2023/05/01/p3yAQuOvtqgo7lI.png' defaultAlt='文章图像' -%}
 										</div>
 										<h3>
 											<a href="{{ post.url |relative_url }}">

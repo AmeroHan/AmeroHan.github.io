@@ -6,8 +6,7 @@
 		</div>
 		<div class="avatar">
 			<div class="content" data-prompt="{% if page.url == '/' %}刷新{% else %}首页{% endif %}">
-				<img class="image" src="/assets/images/nopush/default.png" alt="amero的头像">
-				<!-- <div class="image" style="background: linear-gradient(100deg, #6278B3, #8D6D9B);"></div> -->
+				{%- include image.html image=site.prof_image defaultAlt='amero的头像' -%}
 			</div>
 		</div>
 	</a>
@@ -27,8 +26,7 @@
 	<div class="indicator">前一篇</div>
 	<div class="title">{{ page.previous.title }}</div>
 	<div class="post-image" data-prompt="查看">
-		<img class="image" src="/assets/images/nopush/default.png" alt="文章头图">
-		<!-- <div class="image" style="background: linear-gradient(100deg, #6278B3, #8D6D9B);"></div> -->
+		{%- include image.html image=page.previous.image defaultSrc='https://s2.loli.net/2023/05/01/p3yAQuOvtqgo7lI.png' defaultAlt='文章图像' -%}
 	</div>
 </a>
 {%- endif -%}
@@ -38,8 +36,7 @@
 	<div class="indicator">后一篇</div>
 	<div class="title">{{ page.next.title }}</div>
 	<div class="post-image" data-prompt="查看">
-		<img class="image" src="/assets/images/nopush/default.png" alt="文章头图">
-		<!-- <div class="image" style="background: linear-gradient(100deg, #6278B3, #8D6D9B);"></div> -->
+		{%- include image.html image=page.next.image defaultSrc='https://s2.loli.net/2023/05/01/p3yAQuOvtqgo7lI.png' defaultAlt='文章图像' -%}
 	</div>
 </a>
 {%- endif -%}

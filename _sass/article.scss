@@ -197,7 +197,7 @@ $padding-horizontal: 4rem;
 		margin-right: -$padding-horizontal;
 		padding: 1rem $padding-horizontal;
 		margin-bottom: 1rem;
-		background-color: #fafafb;
+		background-color: #faf9fb;
 		line-height: 1.4;
 		
 		&::after {
@@ -240,7 +240,8 @@ $padding-horizontal: 4rem;
 blockquote {
 	padding-left: 2rem;
 	background:
-		url(/assets/images/nopush/quote_left.svg)
+		// 源文件在assets/images/nopush/quote.svg
+		url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 96'%3e%3cpath d='M44.288,0.432l10.543,17.586c-5.146,1.907-21.251,9.509-24.178,20.292c1.517-0.674,2.619-1.242,6.106-1.242c12.813,0,26.405,9.424,26.405,27.612C63.164,78.621,53.577,95,33.541,95C15.647,95,0,82.775,0,59.343C0,22.667,28.197,6.962,44.288,0.432z M64.836,59.343C64.836,82.775,80.483,95,98.377,95C118.413,95,128,78.621,128,64.679c0-18.188-13.592-27.612-26.405-27.612c-3.487,0-4.589,0.568-6.106,1.242c2.928-10.784,19.032-18.385,24.178-20.292L109.124,0.432C93.033,6.962,64.836,22.667,64.836,59.343z' fill='%23774cac'/%3e%3c/svg%3e")
 		0 .25rem / 1.5rem no-repeat;
 }
 
