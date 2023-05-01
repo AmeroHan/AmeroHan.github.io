@@ -1,5 +1,6 @@
 .toc {
 	margin-top: .5rem;
+	flex-grow: 1;
 
 	h2 {
 		padding-left: .5rem;
@@ -30,7 +31,6 @@
 
 .site-tools {
 	@extend %block-list;
-	bottom: 2rem;
 
 	> li {
 		@extend %card;

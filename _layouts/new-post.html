@@ -2,7 +2,7 @@
 layout: new-default
 ---
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-
+	{%- comment %}
 	<div class="post-label">
 		<div class="post-category-wrapper">
 			分类：
@@ -34,6 +34,7 @@ layout: new-default
 			{%- endif -%}
 		</div>
 	</div>
+	{%- endcomment %}
 
 	<header class="post-header">
 		<h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>

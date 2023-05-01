@@ -119,7 +119,7 @@ $padding-horizontal: 4rem;
 	}
 	> footer {
 		padding: 0 $padding-horizontal;
-		font-size: .75rem;
+		font-size: $text-size-xxs;
 		text-align: right;
 		opacity: .6;
 	}
@@ -129,7 +129,7 @@ $padding-horizontal: 4rem;
 .post-label {
 	display: flex;
 	flex-wrap: wrap;
-	font-size: .875rem;
+	font-size: $text-size-xs;
 	line-height: 1.5;
 	color: #777;
 	margin-left: $padding-horizontal;
@@ -192,7 +192,7 @@ $padding-horizontal: 4rem;
 	}
 
 	> .highlighter-rouge {
-		font-size: .875rem;
+		font-size: $text-size-xs;
 		margin-left: -$padding-horizontal;
 		margin-right: -$padding-horizontal;
 		padding: 1rem $padding-horizontal;
@@ -277,7 +277,7 @@ blockquote {
 	background-color: #774cac;
 	line-height: 1rem;
 	min-width: 1rem;
-	color: #fff;
+	color: #fff !important;
 	border-radius: 1rem;
 	text-align: center;
 	padding: 0 .375em;

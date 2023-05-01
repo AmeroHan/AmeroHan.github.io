@@ -8,6 +8,14 @@ html {
 		sans-serif;
 }
 
+a {
+	color: $text-color-link;
+	
+	&:visited {
+		color: $text-color-link;
+	}
+}
+
 $site-footer-height: 3rem;
 $layout-radius: .5rem;
 $layout-shadow: 0 0 .5rem rgba(0,0,0,.03), 0 .25rem 1rem rgba(0,0,0,.07);

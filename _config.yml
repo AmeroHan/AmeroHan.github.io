@@ -13,7 +13,7 @@ lang: zh-CN
 
 # 设置
 timezone: Asia/Shanghai
-permalink: /:categories/:year/:title
+permalink: /:year/:title
 url: https://amero.moe
 
 # kramdown:
