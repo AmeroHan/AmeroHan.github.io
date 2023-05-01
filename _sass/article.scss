@@ -191,7 +191,7 @@ $padding-horizontal: 4rem;
 		tab-size: 4;
 	}
 
-	> .highlighter-rouge {
+	> div.highlighter-rouge, > figure.highlight {
 		font-size: $text-size-xs;
 		margin-left: -$padding-horizontal;
 		margin-right: -$padding-horizontal;

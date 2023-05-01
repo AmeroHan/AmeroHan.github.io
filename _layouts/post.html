@@ -1,5 +1,5 @@
 ---
-layout: new-default
+layout: default
 ---
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 	{%- comment %}
@@ -62,7 +62,4 @@ layout: new-default
 	<footer>
 		<a rel="external" target="_blank" href="{{ site.repo_file_url }}{{ page.path}}">本文章源文件</a>
 	</footer>
-	{%- if site.disqus.shortname -%}
-		{%- include disqus_comments.html -%}
-	{%- endif -%}
 </article>
