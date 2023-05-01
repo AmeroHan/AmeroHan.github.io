@@ -1,0 +1,13 @@
+sass:
+  style: expanded
+
+show_drafts: true
+future: true
+unpublished: true
+
+liquid:
+  # strict_variables: true
+  strict_filters: true
+
+kramdown:
+  show_warnings: true

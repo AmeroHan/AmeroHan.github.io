@@ -1,5 +1,5 @@
 {% if include.image or include.defaultSrc -%}
-<img class="image" src="{{ include.image.src | default: include.image | default: include.defaultSrc }}" alt="{{ include.image.alt | default: include.defaultAlt | default: '' }}">
+<img class="image" src="{{ include.image.src | default: include.image | default: include.defaultSrc }}" alt="{{ include.image.alt | default: include.defaultAlt | default: '' }}" {{ include.image.extra }}>
 {%- else -%}
-<div class="image" style="background: linear-gradient(100deg, #6278B3, #8D6D9B);"></div>
+<div class="image" style="background:linear-gradient(100deg,#6278B3,#8D6D9B)"></div>
 {%- endif %}

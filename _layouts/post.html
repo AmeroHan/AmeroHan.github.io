@@ -37,26 +37,26 @@ layout: default
 	{%- endcomment %}
 
 	<header class="post-header">
-		<h1 class="post-title" itemprop="name headline">{{ page.title | escape }}</h1>
+		<h1 class="post-title" itemprop="name headline" {% if page.lang %}lang="{{page.lang}}"{% endif %}>{{ page.title | escape }}</h1>
 		<p class="post-meta">
 			<time class="dt-published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-				{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+				{%- assign date_format = site.date_format | default: "%F" -%}
 				{{ page.date | date: date_format }}
 			</time>
 			{%- if page.author -%}
-				• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+				• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
 			{%- endif -%}
 		</p>
 	</header>
 
 	{%- if page.image -%}
 		<div class="post-image">
-			<img src="{{ page.image.src | default: page.image }}" alt="{{ page.image.alt | default: '文章头图' }}">
+			<img src="{{ page.image.src | default: page.image }}" alt="{{ page.image.alt | default: '文章头图' }}" {{ page.image.extra }}>
 		</div>
 	{%- endif -%}
 
-	<div class="post-content" itemprop="articleBody">
-		{{ content }}
+	<div class="post-content" itemprop="articleBody" {% if page.lang %}lang="{{page.lang}}"{% endif %}>
+		{{- content -}}
 	</div>
 
 	<footer>

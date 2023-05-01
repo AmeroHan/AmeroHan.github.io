@@ -32,7 +32,7 @@ body {
 	justify-content: center;
 	align-items: flex-start;
 	margin: 0;
-	min-width: 90rem;
+	min-width: 55rem;
 	min-height: calc(100vh - #{$site-footer-height});
 	gap: 1rem;
 	padding: 4rem 1rem 2rem;
@@ -44,11 +44,14 @@ body {
 
 .left-panel {
 	position: sticky;
+	flex-shrink: 0;
 	top: 1rem;
 }
 
 .site-content {
-	width: 52rem;
+	max-width: 52rem;
+	flex: 1 0 36rem;
+	
 }
 
 .right-panel {
