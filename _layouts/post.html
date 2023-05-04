@@ -2,7 +2,7 @@
 layout: default
 ---
 <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-	{%- comment %}
+
 	<div class="post-label">
 		<div class="post-category-wrapper">
 			分类：
@@ -10,7 +10,7 @@ layout: default
 				<ul class="post-category">
 					{%- for category in page.categories -%}
 						<li>
-							<a href="#">{{ category }}</a>
+							<span>{{ category }}</span>
 						</li>
 					{%- endfor -%}
 				</ul>
@@ -25,7 +25,7 @@ layout: default
 				<ul class="post-tag">
 					{%- for tag in page.tags -%}
 						<li>
-							<a href="#">{{ tag }}</a>
+							<span>{{ tag }}</span>
 						</li>
 					{%- endfor -%}
 				</ul>
@@ -34,7 +34,6 @@ layout: default
 			{%- endif -%}
 		</div>
 	</div>
-	{%- endcomment %}
 
 	<header class="post-header">
 		<h1 class="post-title" itemprop="name headline" {% if page.lang %}lang="{{page.lang}}"{% endif %}>{{ page.title | escape }}</h1>

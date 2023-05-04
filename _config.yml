@@ -25,8 +25,6 @@ date_format: "%F"
 # paginate: 15
 # paginate_path: "/blog/page:num/"
 
-show_excerpts: true
-
 sass:
   style: compressed
 

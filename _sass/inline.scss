@@ -61,7 +61,7 @@ em {
 		transition: opacity .15s linear;
 	}
 
-	&:hover {
+	&:hover, &:focus {
 		color: white;
 		a {
 			color: rgb(165, 213, 255);

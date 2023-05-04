@@ -50,6 +50,7 @@ h2 {
 		line-height: 1.6;
 		color: #666;
 		margin-bottom: 1rem;
+		text-align: justify;
 		
 		> :last-child::after {
 			content: "\20⋯⋯";
@@ -149,7 +150,7 @@ $padding-horizontal: 4rem;
 	li {
 		margin: 0 .5rem .5rem 0;
 		
-		> a {
+		> * {
 			@extend %center-items;
 			background-color: #00000011;
 			min-width: 2.5rem;
@@ -187,6 +188,11 @@ $padding-horizontal: 4rem;
 		tab-size: 4;
 	}
 
+	p > img {
+		max-width: 100%;
+		height: auto;
+	}
+
 	> div.highlighter-rouge, > figure.highlight {
 		font-size: $text-size-xs;
 		margin-left: -$padding-horizontal;
@@ -202,6 +208,34 @@ $padding-horizontal: 4rem;
 				inset 0 -0.25rem 0.25rem -0.25rem #0001;
 		}
 		@extend %full-after;
+	}
+
+	> figure {
+		margin-left: -$padding-horizontal;
+		margin-right: -$padding-horizontal;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 1rem;
+		background-color: #faf9fb;
+
+		@extend %full-after;
+
+		img {
+			display: block;
+			width: 100%;
+		}
+
+		&::after {
+			box-shadow:
+				inset 0 0.25rem 0.25rem -0.25rem #0002,
+				inset 0 -0.25rem 0.25rem -0.25rem #0001;
+		}
+
+		figcaption {
+			font-size: $text-size-xs;
+			padding: .5rem 4rem;
+		}
 	}
 
 	:target {

@@ -1,0 +1,8 @@
+<figure>
+{%- if include.src -%}
+<img src="{{ include.src }}" alt="{{ include.alt | default: include.caption | default: '图' }}">
+{%- else -%}
+{{ include.content }}
+{%- endif -%}
+<figcaption>{{ include.caption }}</figcaption>
+</figure>

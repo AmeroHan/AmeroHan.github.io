@@ -61,7 +61,6 @@
 										-}}
 									</div>
 
-									{%- comment %}
 									<div class="post-label">
 										{%- if post.categories.size > 0 -%}
 											<div class="post-category-wrapper">
@@ -69,7 +68,7 @@
 													<ul class="post-category">
 														{%- for category in post.categories -%}
 															<li>
-																<a href="#">{{ category }}</a>
+																<span>{{ category }}</span>
 															</li>
 														{%- endfor -%}
 													</ul>
@@ -82,15 +81,14 @@
 													<ul class="post-tag">
 														{%- for tag in post.tags -%}
 															<li>
-																<a href="#">{{ tag }}</a>
+																<span>{{ tag }}</span>
 															</li>
 														{%- endfor -%}
 													</ul>
 											</div>
 										{%- endif -%}
 									</div>
-									{%- endcomment %}
-				
+
 								</article></li>
 							{%- endfor -%}
 						</ul>

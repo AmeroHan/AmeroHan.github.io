@@ -1,0 +1,1 @@
+<span class="truth" tabindex="0" role="note">{{ include.t }}</span>
