@@ -17,6 +17,7 @@ timezone: Asia/Shanghai
 permalink: /:year/:title
 url: https://amero.moe
 date_format: "%F"
+theme: null
 
 # kramdown:
 #   parse_block_html: true

@@ -1,0 +1,10 @@
+# 键名大写
+'CC BY 4.0':
+  name: 知识共享署名 4.0 国际许可协议
+  href: https://creativecommons.org/licenses/by/4.0/deed.zh
+'CC BY-NC-SA 3.0 CN':
+  name: 知识共享署名-非商业性使用-相同方式共享 3.0 中国大陆许可协议
+  href: https://creativecommons.org/licenses/by-nc-sa/3.0/cn/
+'CC BY-NC-SA 4.0':
+  name: 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议
+  href: https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh

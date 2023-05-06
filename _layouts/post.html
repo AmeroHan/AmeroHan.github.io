@@ -59,6 +59,9 @@ layout: default
 	</div>
 
 	<footer>
-		<a rel="external" target="_blank" href="{{ site.repo_file_url }}{{ page.path}}">本文章源文件</a>
+		{% if page.license %}
+			{% include page-license.html license=page.license %}
+		{% endif %}
+		<p class="post-source-link"><a rel="external" target="_blank" href="{{ site.repo_file_url }}{{ page.path}}">本页源文件</a></p>
 	</footer>
 </article>

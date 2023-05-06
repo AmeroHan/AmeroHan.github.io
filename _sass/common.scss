@@ -1,15 +1,14 @@
 html {
 	font-family:
 		-apple-system, BlinkMacSystemFont,
-		'Segoe UI Variable', 'Segoe UI',
-		Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-		'MicroSoft YaHei',
-		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+		'PingFang SC', 'MicroSoft YaHei',
+		'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
 		sans-serif;
 }
 
 pre, code, kbd, samp {
-	font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+	font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 a {
@@ -36,13 +35,16 @@ $left-panel-width: 16rem;
 	inset: 0;
 }
 
-%full-after {
+%embeded-block {
 	position: relative;
 	&::after {
 		content: "";
 		position: absolute;
 		inset: 0;
 		pointer-events: none;
+		box-shadow:
+			inset 0 0.25rem 0.25rem -0.25rem #0002,
+			inset 0 -0.25rem 0.25rem -0.25rem #0001;
 	}
 }
 
@@ -71,4 +73,15 @@ $left-panel-width: 16rem;
 		clear: both;
 		content: "";
 	}
+}
+
+%no-select {
+	    -ms-user-select: none;
+	   -moz-user-select: none;
+	-webkit-user-select: none;
+	        user-select: none;
+}
+
+.right {
+	text-align: right;
 }
