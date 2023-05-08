@@ -22,19 +22,19 @@
 			height: $avatar-height;
 			transition: all .27s;
 			clip-path: circle(farthest-side at $avatar-circle-x $avatar-circle-y);
-	
+
 			.content {
 				position: relative;
 				height: 100%;
 				max-width: $left-panel-width;
 				overflow: hidden;
-	
+
 				.image {
 					@extend %image-cover;
 					@extend %full;
 					transition: transform .6s;
 				}
-	
+
 				&::after {
 					content: attr(data-prompt);
 					@extend %center-items;
@@ -46,7 +46,7 @@
 				}
 			}
 		}
-	
+
 		.name {
 			position: absolute;
 			right: 0;
@@ -56,13 +56,13 @@
 			line-height: 1;
 			font-weight: 700;
 			transition: right .2s;
-	
+
 			&__main {
 				font-size: 1.75rem;
 			}
 		}
 
-		&:hover {
+		&:hover, &:focus {
 			.avatar {
 				// 使圆覆盖整个.header
 				width:
@@ -87,10 +87,9 @@
 			.name {
 				right: -3rem;
 			}
-
 		}
 	}
-	
+
 
 	.nav ul {
 		@extend %block-list;
@@ -98,13 +97,16 @@
 		grid-template-columns: 1fr 1fr;
 		font-size: .875rem;
 		> li {
+			overflow: hidden;
 			> a {
 				display: block;
 				text-align: center;
 				padding: .75rem .25rem;
-			}
-			&:hover {
-				background-color: #0001
+				transition: transform .25s;
+				&:hover, &:focus {
+					background-color: #0001;
+					transform: scale(1.2);
+				}
 			}
 		}
 	}
@@ -155,7 +157,7 @@
 		max-height: $lh * 2;
 		transition: transform .25s;
 		overflow: hidden;
-		
+
 		// 超出的文字用省略号表示
 		// 兼容性稍差，考虑换用JS
 		display: -webkit-box;
@@ -164,7 +166,7 @@
 		text-overflow: ellipsis;
 	}
 
-	&:hover {
+	&:hover, &:focus {
 		.post-image {
 			width: 10rem;
 			&::after {
@@ -187,8 +189,8 @@
 		left: 0;
 		clip-path: circle(farthest-side at left);
 	}
-	
-	&:hover {
+
+	&:hover, &:focus {
 		.indicator, .title {
 			transform: translateX(1.5rem);
 		}
@@ -203,7 +205,7 @@
 		clip-path: circle(farthest-side at right);
 	}
 
-	&:hover {
+	&:hover, &:focus {
 		.indicator, .title {
 			transform: translateX(-1.5rem);
 		}
@@ -217,7 +219,7 @@
 	border-radius: .125rem;
 	background: #999;
 	box-shadow: $layout-shadow;
-	
+
 	&:last-child {
 		display: none;
 	}

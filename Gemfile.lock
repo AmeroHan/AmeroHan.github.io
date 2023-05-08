@@ -87,7 +87,7 @@ GEM
       activesupport (>= 2)
       nokogiri (>= 1.4)
     http_parser.rb (0.8.0)
-    i18n (1.12.0)
+    i18n (1.13.0)
       concurrent-ruby (~> 1.0)
     jekyll (3.9.3)
       addressable (~> 2.4)
@@ -253,14 +253,13 @@ GEM
     unicode-display_width (1.8.0)
     wdm (0.1.1)
     webrick (1.8.1)
-    zeitwerk (2.6.7)
+    zeitwerk (2.6.8)
 
 PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
   github-pages (~> 228)
-  jekyll-feed (~> 0.12)
   minima (~> 2.5.1)
   tzinfo (~> 1.2)
   tzinfo-data
