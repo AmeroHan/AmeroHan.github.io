@@ -3,7 +3,7 @@
 	margin: 0;
 }
 
-$site-footer-height: 3rem;
+$site-footer-height: 4rem;
 
 ::selection {
 	background-color: rgba(78, 34, 120, 0.8);
@@ -67,8 +67,10 @@ body {
 // FOOTER
 .site-footer {
 	@extend %center-items;
+	flex-direction: column;
 	height: $site-footer-height;
-	small {
+	gap: .5rem;
+	small, .site-icp {
 		font-size: .875rem;
 	}
 }
