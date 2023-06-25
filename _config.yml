@@ -45,6 +45,8 @@ exclude:
   - vendor/
   - CNAME
   - serve locally.bat
+  - assets/fonts/jbmono/OFL.txt
+  - assets/fonts/ubuntu/LICENCE.txt
 
 defaults:
   - scope:
