@@ -199,6 +199,39 @@ $padding-horizontal: 4rem;
 		tab-size: 4;
 	}
 
+	table {
+		margin-left: auto;
+		margin-right: auto;
+		background: #FAF9FB;
+		border-spacing: .25rem;
+
+		&.nowrap-first {
+			th:first-child, td:first-child {
+				white-space: nowrap;
+			}
+		}
+	}
+
+	th, td {
+		position: relative;
+		padding: 0 .25rem;
+	}
+
+	thead th {
+		border-bottom: .125rem solid #9767D2;
+	}
+
+	tr:not(:first-child) > td:not(:first-child)::before {
+		content: "";
+		position: absolute;
+		background: #9767D2;
+		height: .25rem;
+		width: .25rem;
+		left: -.25rem;
+		top: -.25rem;
+		transform: rotate(135deg);
+	}
+
 	p > img {
 		max-width: 100%;
 		height: auto;
@@ -265,7 +298,11 @@ $padding-horizontal: 4rem;
 		}
 	}
 }
- 
+
+.language-brainfuck {
+	font-variant-ligatures: no-contextual;
+	font-feature-settings: 'calt' 0;
+}
 
 // 引用
 .post-content blockquote {
