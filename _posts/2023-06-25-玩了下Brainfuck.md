@@ -1,23 +1,24 @@
 ---
-title: 用Lua写了个Brainfuck解释器，玩了一夜
+title: 用Lua写了个Brainfuck解释器，“玩”了一夜
 date: 2023-06-25 22:59:54 +08:00
 tags: Lua Brainfuck
-excerpt: 久闻Brainfuck大名，上周了解图灵完备的时候又看到了这个语言，便心血来潮自己用Lua实现了一个，玩了一夜。
+excerpt: 久闻Brainfuck大名，上周了解图灵完备的时候又看到了这个语言，便心血来潮自己用Lua实现了一个，“玩”了一夜。
 license: CC BY 4.0
 ---
 
 久闻Brainfuck大名，最早是在SILI[^SILI]的功能里得知的。上周了解图灵完备的时候又看到了这个语言[^Turing]，便心血来潮自己用Lua实现了一个。
 
-Brainfuck假想有一个长度至少为30&zwj;,&zwj;000的一维数组，每个单元为1字节。初始状态所有单元都为0，数据指针指向首个单元，指令指针指向首个指令。8个指令也很简单：
+Brainfuck假设有一个长度至少为30&zwj;,&zwj;000的一维数组，每个单元为1字节。初始状态所有单元都为0，数据指针指向首个单元，指令指针指向首个指令。8个指令也很简单：
 
 | 字符 | 作用 |
-|----|----|
-| `<` / `>` | 数据指针左移/右移一个单元 |
-| `+` / `-` | 当前单元的值加1/减1 |
-| `,` | 读取输入的一个字节，存入当前单元 |
-| `.` | 输出当前单元的值（当作ASCII码） |
-| `[` | 当前单元的值不为0时，执行下一条指令；否则跳转到与之配对的`]`之后 |
-| `]` | 指令指针回到与之配对的`[`的位置。实际与“当前单元的值不为0时再跳转”等价[^enwp] |
+| --- | --- |
+| `<` / `>` | 数据指针左移/右移一个单元。 |
+| `+` / `-` | 当前单元的值加1/减1。 |
+| `,` | 读取输入的一个字节，存入当前单元。 |
+| `.` | 输出当前单元的值（当作ASCII码）。 |
+| `[` | 当前单元的值不为0时，执行下一条指令；否则跳转到与之配对的`]`之后。 |
+| `]` | 指令指针回到与之配对的`[`的位置。实际与“当前单元的值不为0时再跳转”等价[^enwp]。 |
+{:.nowrap-first}
 
 这8个字符以外的字符会被忽略。
 
@@ -205,8 +206,8 @@ MEM: zero zero charIn
 
 ## 参考资料
 
-[^SILI]: [project-epb/Chatbot-SILI \| GitHub](https://github.com/project-epb/Chatbot-SILI)
+[^SILI]: [project-epb/Chatbot-SILI ｜ GitHub](https://github.com/project-epb/Chatbot-SILI)
 
-[^Turing]: [什么是图灵完备？ - Ran C的回答 \| 知乎](https://www.zhihu.com/question/20115374/answer/288346717)
+[^Turing]: [什么是图灵完备？ - Ran C的回答 ｜ 知乎](https://www.zhihu.com/question/20115374/answer/288346717)
 
-[^enwp]: [Brainfuck \| Wikipedia](https://en.wikipedia.org/wiki/Brainfuck)
+[^enwp]: [Brainfuck ｜ Wikipedia](https://en.wikipedia.org/wiki/Brainfuck)
