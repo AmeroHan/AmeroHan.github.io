@@ -34,20 +34,16 @@ $font-mono:
 // https://github.com/JetBrains/JetBrainsMono
 @font-face {
 	font-family: "JetBrains Mono";
-	src:
-		local("JetBrains Mono");
-		// local("JetBrains Mono"),
-		// url("/assets/fonts/jbmono/JetBrainsMono-Regular.woff2") format("woff2");
-		font-style: normal;
+	src: local("JetBrains Mono"),
+		url("/assets/fonts/jbmono/JetBrainsMono-Regular.woff2") format("woff2");
+	font-style: normal;
 }
 
 @font-face {
 	font-family: "JetBrains Mono";
-	src:
-		local("JetBrains Mono Italic");
-		// local("JetBrains Mono Italic"),
-		// url("/assets/fonts/jbmono/JetBrainsMono-Italic.woff2") format("woff2");
-		font-style: italic;
+	src: local("JetBrains Mono Italic"),
+		url("/assets/fonts/jbmono/JetBrainsMono-Italic.woff2") format("woff2");
+	font-style: italic;
 }
 
 
