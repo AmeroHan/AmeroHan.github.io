@@ -44,8 +44,7 @@
 		position: relative;
 		> a {
 			@extend %center-items;
-			position: absolute;
-			inset: 0;
+			@extend %full;
 		}
 	}
 }
