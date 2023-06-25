@@ -1,7 +1,7 @@
 {% assign uppercasePageLicense = include.license | upcase -%}
 {%- assign licenseMatched = site.data.licenses[uppercasePageLicense] -%}
 {%- if licenseMatched -%}
-<p class="post-license">本作品采用<a rel="license external" target="_blank" href="{{ licenseMatched.href }}">{{ licenseMatched.name }}</a>进行许可（图像除外）</p>
+<p class="post-license">本作品采用<a rel="license external" target="_blank" href="{{ licenseMatched.href }}">{{ licenseMatched.name }}</a>进行许可（图像及另有声明的除外）</p>
 {%- else -%}
 <p class="post-license error">未匹配的协议！</p>
 {%- endif %}

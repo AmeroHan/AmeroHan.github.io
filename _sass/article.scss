@@ -355,7 +355,7 @@ $padding-horizontal: 4rem;
 .footnote {
 	@extend %no-select;
 	&::before {
-		content: "[";
+		content: "\2060[";
 	}
 	&::after {
 		content: "]";
