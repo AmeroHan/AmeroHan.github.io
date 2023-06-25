@@ -224,7 +224,6 @@ $padding-horizontal: 4rem;
 		margin-right: -$padding-horizontal;
 		display: flex;
 		flex-direction: column;
-		align-items: center;
 		margin-bottom: 1rem;
 
 		> div {
@@ -238,6 +237,7 @@ $padding-horizontal: 4rem;
 		}
 
 		figcaption {
+			align-self: center;
 			font-size: $text-size-xs;
 			color: #666;
 			padding: .5rem 4rem;
