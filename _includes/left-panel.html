@@ -27,7 +27,7 @@
 	<div class="indicator">前一篇</div>
 	<div class="title">{{ page.previous.title }}</div>
 	<div class="post-image" data-prompt="查看">
-		{%- include image.html image=page.previous.image defaultSrc='https://s2.loli.net/2023/05/01/p3yAQuOvtqgo7lI.png' defaultAlt='文章图像' -%}
+		{%- include image.html image=page.previous.image defaultSrc=site.default_image defaultAlt='文章图像' -%}
 	</div>
 </a>
 {%- endif -%}
@@ -37,7 +37,7 @@
 	<div class="indicator">后一篇</div>
 	<div class="title">{{ page.next.title }}</div>
 	<div class="post-image" data-prompt="查看">
-		{%- include image.html image=page.next.image defaultSrc='https://s2.loli.net/2023/05/01/p3yAQuOvtqgo7lI.png' defaultAlt='文章图像' -%}
+		{%- include image.html image=page.next.image defaultSrc=site.default_image defaultAlt='文章图像' -%}
 	</div>
 </a>
 {%- endif -%}

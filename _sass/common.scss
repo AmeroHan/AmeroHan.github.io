@@ -46,6 +46,10 @@ $font-mono:
 	font-style: italic;
 }
 
+* {
+	box-sizing: border-box;
+	margin: 0;
+}
 
 html {
 	font-family: $font-sans;

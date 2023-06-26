@@ -1,14 +1,32 @@
+@keyframes h1anim {
+	0% {
+		font-variation-settings: "wght" 100;
+	}
+
+	100% {
+		font-variation-settings: "wght" 800;
+	}
+}
+
 .site-intro {
 	text-align: center;
 	padding: 16rem 0 12rem;
+
 	h1 {
 		font-size: 3rem;
 		font-weight: 400;
+		animation: h1anim 5s ease-in-out alternate infinite;
 	}
-
 }
 
 .site-content .home > h2 {
 	// 临时
 	margin-top: calc(-1lh - 1rem);
+}
+
+// 临时
+@media screen and (max-width: $screen-width-m) {
+	.site-intro + .site-cols > .left-panel {
+		display: none;
+	}
 }

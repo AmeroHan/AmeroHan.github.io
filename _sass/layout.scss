@@ -1,9 +1,9 @@
-* {
-	box-sizing: border-box;
-	margin: 0;
-}
-
 $site-footer-height: 4rem;
+$screen-width-xw: 73rem;
+$screen-width-w: 64rem;
+$screen-width-m: 56rem;
+$screen-width-s: 40rem;
+$screen-width-xs: 26rem;
 
 ::selection {
 	background-color: rgba(78, 34, 120, 0.8);
@@ -25,6 +25,28 @@ a {
 
 body {
 	width: 100%;
+
+	// &::after {
+	// 	content: ">xw";
+	// 	position: fixed;
+	// 	top: 0;
+	// 	left: .5rem;
+	// 	@media screen and (max-width: $screen-width-xw) {
+	// 		content: "xw";
+	// 	}
+	// 	@media screen and (max-width: $screen-width-w) {
+	// 		content: "w";
+	// 	}
+	// 	@media screen and (max-width: $screen-width-m) {
+	// 		content: "m";
+	// 	}
+	// 	@media screen and (max-width: $screen-width-s) {
+	// 		content: "s";
+	// 	}
+	// 	@media screen and (max-width: $screen-width-xs) {
+	// 		content: "xs";
+	// 	}
+	// }
 }
 
 .site-cols {
@@ -32,26 +54,85 @@ body {
 	justify-content: center;
 	align-items: flex-start;
 	margin: 0;
-	min-width: 55rem;
 	min-height: calc(100vh - #{$site-footer-height});
 	gap: 1rem;
 	padding: 4rem 1rem 2rem;
+
+	@media screen and (max-width: $screen-width-m) {
+		display: block;
+		padding: 0 0 2rem;
+	}
 }
 
 .left-panel, .right-panel {
 	width: $left-panel-width;
+
+	@media screen and (max-width: $screen-width-m) {
+		width: auto;
+	}
 }
 
 .left-panel {
 	position: sticky;
 	flex-shrink: 0;
 	top: 1rem;
+
+	@media screen and (max-width: $screen-width-m) {
+		position: static;
+	}
 }
 
 .site-content {
 	max-width: 54rem;
-	flex: 1 0 36rem;
+	width: 36rem;
+	flex: 1 0 auto;
+
+	@media screen and (max-width: $screen-width-m) {
+		max-width: none;
+		width: auto;
+	}
+}
+
+.home {
+	--padding-inline: 2rem;
+
+	@media screen and (max-width: $screen-width-m) {
+		margin-top: 3rem;
+		padding: 1rem;
+	}
 	
+	@media screen and (max-width: $screen-width-s) {
+		--padding-inline: 1rem;
+	}
+}
+
+.post {
+	@extend %card;
+	padding: 3rem 0 2rem;
+	--padding-inline: 4rem;
+
+	@media screen and (max-width: $screen-width-xw) {
+		--padding-inline: 3rem;
+		padding-top: 2rem;
+	}
+
+	@media screen and (max-width: $screen-width-w) {
+		--padding-inline: 2rem;
+	}
+
+	@media screen and (max-width: $screen-width-m) {
+		--padding-inline: 3rem;
+		border-radius: 0;
+		box-shadow: none;
+	}
+
+	@media screen and (max-width: $screen-width-s) {
+		--padding-inline: 2rem;
+	}
+
+	@media screen and (max-width: $screen-width-xs) {
+		--padding-inline: 1.25rem;
+	}
 }
 
 .right-panel {

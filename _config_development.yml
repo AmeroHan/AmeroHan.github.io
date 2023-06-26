@@ -1,3 +1,6 @@
+prof_image: /assets/images/nopush/default.png
+default_image: /assets/images/nopush/default.png
+
 sass:
   style: expanded
 

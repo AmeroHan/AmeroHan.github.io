@@ -8,8 +8,17 @@
 	$avatar-circle-x: $avatar-width - $avatar-circle-radius;
 	$avatar-circle-y: $avatar-height - $avatar-circle-radius;
 
+	@media screen and (max-width: $screen-width-m) {
+		display: block;
+		// display: flex;
+		// justify-content: space-between;
+		// border-radius: 0;
+		// box-shadow: none;
+	}
+
 	.header {
 		display: block;
+		min-width: 10rem;
 		height: $header-height;
 		position: relative;
 		margin-bottom: 1rem;
@@ -45,6 +54,14 @@
 					position: absolute;
 				}
 			}
+
+			@media screen and (max-width: $screen-width-m) {
+				position: relative;
+
+				.content {
+					max-width: none;
+				}
+			}
 		}
 
 		.name {
@@ -56,6 +73,10 @@
 			line-height: 1;
 			font-weight: 700;
 			transition: right .2s;
+
+			@media screen and (max-width: $screen-width-m) {
+				display: none;
+			}
 
 			&__main {
 				font-size: 1.75rem;
@@ -84,20 +105,30 @@
 					font-size: 2rem;
 				}
 			}
+
 			.name {
 				right: -3rem;
 			}
 		}
 	}
 
+	.nav {
+		@media screen and (max-width: $screen-width-m) {
+			display: none;
+		}
+	}
 
 	.nav ul {
 		@extend %block-list;
+		flex-grow: 1;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		font-size: .875rem;
+
 		> li {
 			overflow: hidden;
+			border-radius: .25rem;
+
 			> a {
 				display: block;
 				text-align: center;
@@ -123,6 +154,10 @@
 	justify-content: center;
 	height: 5rem;
 	position: relative;
+
+	@media screen and (max-width: $screen-width-m) {
+		display: none;
+	}
 
 	.post-image {
 		position: absolute;
@@ -219,6 +254,10 @@
 	border-radius: .125rem;
 	background: #999;
 	box-shadow: $layout-shadow;
+
+	@media screen and (max-width: $screen-width-m) {
+		display: none;
+	}
 
 	&:last-child {
 		display: none;

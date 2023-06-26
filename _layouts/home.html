@@ -28,7 +28,7 @@
 								<li><article {% if post.lang %}lang="{{ post.lang }}"{% endif %}>
 									<header>
 										<div class="image-wrapper">
-											{%- include image.html image=post.image defaultSrc='https://s2.loli.net/2023/05/01/p3yAQuOvtqgo7lI.png' defaultAlt='文章图像' -%}
+											{%- include image.html image=post.image defaultSrc=site.default_image defaultAlt='文章图像' -%}
 										</div>
 										<h3>
 											<a href="{{ post.url |relative_url }}">
