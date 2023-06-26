@@ -222,7 +222,7 @@ h2 {
 		margin-left: auto;
 		margin-right: auto;
 		background: #FAF9FB;
-		border-spacing: .25rem;
+		border-spacing: .375rem;
 
 		&.nowrap-first {
 			th:first-child, td:first-child {
@@ -246,9 +246,9 @@ h2 {
 		background: #9767D2;
 		height: .25rem;
 		width: .25rem;
-		left: -.25rem;
-		top: -.25rem;
-		transform: rotate(135deg);
+		left: -.3125rem;
+		top: -.3125rem;
+		transform: rotate(45deg);
 	}
 
 	p > img {
