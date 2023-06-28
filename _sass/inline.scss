@@ -7,8 +7,8 @@ code.highlighter-rouge {
 
 
 del {
-	color: $text-color-sub;
-	text-decoration-color: $text-color;
+	color: $color-subtext;
+	text-decoration-color: $color-text;
 }
 
 // 着重号
@@ -30,7 +30,7 @@ em {
 .truth {
 	$radius: .2rem;
 
-	background-color: $bg-color-truth;
+	background-color: $color-bg-truth;
 	border-radius: $radius;	
 
 	// 内嵌ruby	
@@ -41,7 +41,7 @@ em {
 		border-top-right-radius: 0;
 	}
 	rt {
-		background-color: $bg-color-truth;
+		background-color: $color-bg-truth;
 		&:first-of-type {
 			border-top-left-radius: $radius;
 		}
@@ -52,8 +52,8 @@ em {
 
 	// 内嵌em
 	em {
-		-webkit-text-emphasis-color: $text-color;
-		        text-emphasis-color: $text-color;
+		-webkit-text-emphasis-color: $color-text;
+		        text-emphasis-color: $color-text;
 	}
 
 	img {

@@ -60,10 +60,10 @@ pre, code, kbd, samp {
 }
 
 a {
-	color: $text-color-link;
+	color: $color-link;
 	
 	&:visited {
-		color: $text-color-link;
+		color: $color-link;
 	}
 }
 

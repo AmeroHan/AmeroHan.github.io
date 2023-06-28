@@ -61,7 +61,7 @@ h2 {
 	.excerpt {
 		@extend %clear-bottom;
 		padding: 1rem var(--padding-inline) 0;
-		line-height: 1.625;
+		line-height: $lh;
 		color: #666;
 		margin-bottom: 1rem;
 		text-align: justify;
@@ -96,12 +96,13 @@ h2 {
 	h1 {
 		font-size: 2rem;
 		line-height: 1.2;
-		margin: 0 0 .875rem;
+		margin: 0 0 $length-14;
 		text-align: justify;
+
 		// &::after {
 		// 	content: "";
 		// 	display: block;
-		// 	height: .125rem;
+		// 	height: $length-2;
 		// 	margin: 1rem -.5rem 0;
 		// 	background-color: #6A55A8;
 		// }
@@ -120,24 +121,27 @@ h2 {
 	}
 
 	&-meta {
-		color: #777;
+		color: $color-subtext;
 	}
 
 	.post-image {
 		height: 16rem;
+		@extend %embeded-block;
+
 		img {
 			@extend %image-cover;
 		}
-		@extend %embeded-block;
 	}
+
 	> footer {
-		border-top: 1px solid #dAd9dB;
+		border-top: 1px solid #DAD9DB;
 		margin: 1rem var(--padding-inline) 0;
 		padding-top: 1rem;
-		font-size: $text-size-xxs;
+		font-size: $size-text-xxs;
 		display: flex;
 		flex-wrap: wrap;
 	}
+
 	.post-source-link {
 		flex-grow: 1;
 		margin-left: 1rem;
@@ -150,9 +154,9 @@ h2 {
 .post-label {
 	display: flex;
 	flex-wrap: wrap;
-	font-size: $text-size-xs;
+	font-size: $size-text-xs;
 	line-height: 1.5;
-	color: #777;
+	color: $color-subtext;
 	margin-left: var(--padding-inline);
 	margin-right: var(--padding-inline) - 2rem;
 	margin-bottom: -.5rem;
@@ -170,6 +174,7 @@ h2 {
 	@extend %block-list;
 	display: inline-flex;
 	margin-right: -.5rem;
+	
 	li {
 		margin: 0 .5rem .5rem 0;
 		
@@ -221,8 +226,8 @@ h2 {
 	table {
 		margin-left: auto;
 		margin-right: auto;
-		background: #FAF9FB;
-		border-spacing: .375rem;
+		background-color: $color-bg-block;
+		border-spacing: $length-6;
 
 		&.nowrap-first {
 			th:first-child, td:first-child {
@@ -237,17 +242,17 @@ h2 {
 	}
 
 	thead th {
-		border-bottom: .125rem solid #9767D2;
+		border-bottom: $length-2 solid $color-accent;
 	}
 
 	tr:not(:first-child) > td:not(:first-child)::before {
 		content: "";
 		position: absolute;
-		background: #9767D2;
+		background: $color-accent;
 		height: .25rem;
 		width: .25rem;
-		left: -.3125rem;
-		top: -.3125rem;
+		left: -$length-5;
+		top: -$length-5;
 		transform: rotate(45deg);
 	}
 
@@ -257,11 +262,11 @@ h2 {
 	}
 
 	> div.highlighter-rouge, > figure.highlight {
-		font-size: $text-size-xs;
+		font-size: $size-text-xs;
 		margin-left: calc(-1 * var(--padding-inline));
 		margin-right: calc(-1 * var(--padding-inline));
 		margin-bottom: 1rem;
-		background-color: #faf9fb;
+		background-color: $color-bg-block;
 		line-height: 1.4;
 		@extend %embeded-block;
 
@@ -279,7 +284,7 @@ h2 {
 		margin-bottom: 1rem;
 
 		> div {
-			background-color: #faf9fb;
+			background-color: $color-bg-block;
 			@extend %embeded-block;
 		}
 
@@ -290,8 +295,8 @@ h2 {
 
 		figcaption {
 			align-self: center;
-			font-size: $text-size-xs;
-			color: #666;
+			font-size: $size-text-xs;
+			color: $color-subtext;
 			padding: .5rem 4rem;
 			line-height: 1.4;
 		}
@@ -301,17 +306,21 @@ h2 {
 		outline: solid .25rem rgba(66,31,255,.3);
 		border-radius: .25rem;
 		animation: tgt-fade 2s ease-in forwards;
+
 		@keyframes tgt-fade {
-			from {
+			0% {
 				outline-color: rgba(66,31,255,0);
 			}
+
 			25% {
 				outline-color: rgba(66,31,255,.3)
 			}
+
 			75% {
 				outline-color: rgba(66,31,255,.3)
 			}
-			to {
+
+			100% {
 				outline-color: rgba(66,31,255,0);
 			}
 		}
@@ -328,7 +337,7 @@ h2 {
 	position: relative;
 	padding: .5rem 1rem .5rem 1.5rem;
 	margin-left: .5rem;
-	background-color: #FAF9FB;
+	background-color: $color-bg-block;
 	
 	&::before {
 		content: "";
@@ -348,6 +357,7 @@ h2 {
 .task-list {
 	list-style: none;
 }
+
 .task-list-item-checkbox {
 	display: inline-block;
 	appearance: none;
@@ -373,13 +383,16 @@ h2 {
 // 脚注
 .footnote {
 	@extend %no-select;
+
 	&::before {
-		content: "\2060[";
+		content: "\2060["; // U+2060 WORD JOINER
 	}
+
 	&::after {
 		content: "]";
 	}
 }
+
 .footnotes {
-	font-size: $text-size-xs;
+	font-size: $size-text-xs;
 }
